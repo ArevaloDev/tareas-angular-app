@@ -14,8 +14,13 @@
       <div *ngIf="tareas.length === 0" class="badge text-bg-danger mt-3">
         <h6>No hay tareas para mostrar</h6>
       </div>
-      <ul class="list-group mt-2" *ngFor="let tarea of tareas">
-        <li class="list-group-item">{{ tarea.nombre }}</li>
+      <ul class="list-group  mt-2" *ngFor="let tarea of tareas">
+        <li class="list-group-item d-flex justify-content-between">
+          <span><fa-icon (click)="completarTarea(tarea.id)" class="fa-regular" [icon]="iconoCirculo"></fa-icon></span>
+          {{ tarea.nombre }}
+          <span ><fa-icon (click)="eliminarTarea(tarea.id)" class="iconTrash" [icon]="iconTrash"></fa-icon></span>
+        </li>
+
       </ul>
     </div>
   </div>
