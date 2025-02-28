@@ -16,7 +16,7 @@
       </div>
       <ul class="list-group  mt-2" *ngFor="let tarea of tareas">
         <li class="list-group-item d-flex justify-content-between">
-          <span><fa-icon (click)="completarTarea(tarea.id)" class="fa-regular" [icon]="iconoCirculo"></fa-icon></span>
+          <span><fa-icon (click)="completarTarea(tarea.id)" class="fa-regular" [icon]="!tarea.estado ? iconoCirculo : iconoCheck"></fa-icon></span>
           {{ tarea.nombre }}
           <span ><fa-icon (click)="eliminarTarea(tarea.id)" class="iconTrash" [icon]="iconTrash"></fa-icon></span>
         </li>
