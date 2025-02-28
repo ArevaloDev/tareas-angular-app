@@ -22,9 +22,24 @@ export class TareasService {
     this.tareas = [...this.tareas, objTarea];
   }
 
+  eliminarTarea = (id:number):void => {
+    this.tareas = this.tareas.filter(tarea => tarea.id !== id);
+  }
+
+  complementarTarea = (id:number):void => {
+    this.tareas = this.tareas.map((tarea) =>
+      tarea.id === id ? { ...tarea, estado: true } : tarea
+    );
+    this.agregarALocalStorage(this.tareas);
+  }
+
 
   obtenerTareas = ():Tarea[] => {
     return this.tareas;
+  }
+
+  agregarALocalStorage = (tarea:Tarea[]):void => {
+    localStorage.setItem('tareas', JSON.stringify(tarea));
   }
 
 
